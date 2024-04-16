@@ -70,7 +70,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
                     top:-60,
                     right: -5,
                     fontSize: 30,
-                    color: "#EA2B1F",
+                    color: "#ff8080",
                   }} 
                 />
               ) : (
