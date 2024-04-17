@@ -48,35 +48,39 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
               gridProps =
                 index === 0
                   ? { xs: 12, sm: 12, md: 12 }
-                  : { xs: 12, sm: 6, md: 12 / (images.length - 1) };
+                  : { xs: 6, sm: 6, md: 12 / (images.length - 1) };
               break;
           }
           return (
             <Grid item {...gridProps} key={index}>
 
-
-              
-                
-              <img
+              {image.type === "video" ? (
+                <React.Fragment>
+                <iframe
+                width="100%"
+                height="315"
                 src={image.src}
-                alt={`Image ${image.description || `image: ${index + 1}`}`}
-                style={{ width: "100%", height: "auto", cursor: "pointer" }}
-                onClick={() => handleClickOpen(image)}
-              />
-                            {!image.type ? (
-                <YouTubeIcon
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
+                {/* <YouTubeIcon
                   sx={{
                     position: "relative",
-                    top:-60,
+                    top: -60,
                     right: -5,
                     fontSize: 30,
                     color: "#ff8080",
-                  }} 
-                />
+                  }}
+                /> */}
+                </React.Fragment>
               ) : (
-                ""
+                <img
+                  src={image.src}
+                  alt={`Image ${image.description || `image: ${index + 1}`}`}
+                  style={{ width: "100%", height: "auto", cursor: "pointer" }}
+                  onClick={() => handleClickOpen(image)}
+                />
               )}
-             
             </Grid>
           );
         })}
