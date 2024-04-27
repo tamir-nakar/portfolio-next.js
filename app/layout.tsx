@@ -10,11 +10,11 @@ export const metadata: Metadata = {
     default: "Tamir Nakar",
     template: "%s | chronark.com",
   },
-  description: "Senior Full-Stack developer",
+  description: "Ninja Full-Stack developer",
   openGraph: {
-    title: "chronark.com",
+    title: "Dev portfolio",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
+      "tamir Nakar",
     url: "https://chronark.com",
     siteName: "chronark.com",
     images: [

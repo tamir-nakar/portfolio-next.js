@@ -1,14 +1,37 @@
 ---
-title: planetfall.io
-description: I'm building a SAAS providing global latency monitoring for your APIs and websites from edge locations around the world. Have you ever wondered how fast your API is in any part of the world? Planetfall allows you to find out and monitor it continuously.
-date: "2023-04-01"
+title: flip-it!
+description: A memory cards game with customizable cards. This is a Client-Server project made completely using plain Vanilla.js. The client is a pure SPA (single page application) that makes AJAX calls to the server to read, validate, and write scores onto the scoreboard.
+date: "2019-04-26"
 published: true
-url: https://planetfall.io
+url: https://flip-it-memory-game.vercel.app/
+repository: tamir-nakar/flip-it-memory-game
 ---
 
 
-[![](/planetfall.png)](https://planetfall.io)
+import Gallery from 'app/components/gallery.tsx' 
 
-Planetfall is a SaaS platform that provides global latency monitoring and synthetic monitoring for APIs. With over 60 regions to monitor from, customers can gain insights into the true performance of their API by checking latency from around the world. 
-Planetfall offers custom timeouts, threshold notifications, and real-time alerts for potential performance issues. Additionally, customers can create custom status pages to share with their customers, which can display availability and latency for every region. Planetfall offers a free tier that includes 100k checks per month and scales as customers grow. Overall, Planetfall helps customers stay in control of their API's performance, improve communication with their customers, and build trust.
+<p><b>Flip it is a client-server project made completely using Vanilla.js. The client is a pure SPA (single page application) that makes AJAX calls to the server to read, validate, and write scores onto the scoreboard.</b></p>
 
+<p>In Flip-it you can choose between two kinds of decks, Marvel and South Park, or you can customize your own deck by dragging png or jpg images onto the "customize" panel.</p>
+
+<p>You play against the clock. Your goal is to reveal all the cards in the shortest time possible. Revealing a mismatch will cost you a 2-second delay, whereas picking the correct pair allows you to continue instantly. You can always strive to beat your own records (stored in local storage), and if you're good enough, you might even qualify for the global scoreboard table and gain eternal glory by putting your name there!</p>
+ 
+### Main features:
+* Choose your desired deck of cards or customize your own.
+* Local and global record-breaking system.
+* Service-check and error handling - your game will continue smoothly even when the server is down (offline mode). When trying to present the scoreboard, a proper message will show up indicating the server is down.
+* Score validation - every game has a unique game ID, signed end-to-end. Malicious users will find it hard to manipulate the system and enter the scoreboard by cheating.
+
+ ### Tech Stack
+
+ * Client: 100% vanilla-js
+ * Server: Node.js (express.js)
+
+ ## Gallery
+
+<Gallery config={{iconColor: '#9f9f9f'}} images={[
+    {src: 'https://github.com/tamir-nakar/flip-it-memory-game/blob/master/documentation/preview_gif.gif?raw=true', type:'image' },
+    {src: 'https://lh3.googleusercontent.com/2I3ECJN-EcfKHVJ4HmU5NTzaNADTct4GFAzQu539KmukoGyjPZODDWl_4IubUWmUfJ8U8DKYpMoHLIXJ9WLcpZjL5g=s1280-w1280-h800', description: "Look & Feel", type: 'image' },
+    {src: 'https://lh3.googleusercontent.com/ETF-3SLgBYatUPAlPi2701ca5GbZg2m_EMxfhe6c2gQ-9hxcE3BOBt684lyghrXjAmnwQIh73x9JKZVj3k4Jgab59VU=s1280-w1280-h800', description: "Search bookmarks",  type: 'image' },
+    {src: 'https://lh3.googleusercontent.com/0cbSpqhzhDmadutbSuTkP_zKSmw4b4APDaRNqKyROddtPkblhH26KStNAB8fmUtpRKAletmTaja5SDRT9hi_S1By=s1280-w1280-h800', description: "Right click menu" ,type: 'image' },  
+]} />                       
