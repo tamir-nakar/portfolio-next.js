@@ -8,15 +8,15 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 export const metadata: Metadata = {
   title: {
     default: "Tamir Nakar",
-    template: "%s | chronark.com",
+    template: "%s | tamir-nakar-dev-portfolio",
   },
   description: "Ninja Full-Stack developer",
   openGraph: {
     title: "Dev portfolio",
     description:
       "tamir Nakar",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+    url: "https://tamirnakar.vercel.app/",
+    siteName: "tamir-nakar-dev-portfolio",
     images: [
       {
         url: "https://chronark.com/og.png",
@@ -38,10 +38,10 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  twitter: {
-    title: "Chronark",
-    card: "summary_large_image",
-  },
+  // twitter: {
+  //   title: "Chronark",
+  //   card: "summary_large_image",
+  // },
   icons: {
     shortcut: "/favicon.png",
   },

@@ -21,8 +21,8 @@ export default async function ProjectsPage() {
   }, {} as Record<string, number>);
 
   const featured = allProjects.find((project) => project.slug === "hive")!;
-  const top2 = allProjects.find((project) => project.slug === "planetfall")!;
-  const top3 = allProjects.find((project) => project.slug === "highstorm")!;
+  const top2 = allProjects.find((project) => project.slug === "flip-it")!;
+  const top3 = allProjects.find((project) => project.slug === "bomber-man")!;
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
@@ -46,7 +46,7 @@ export default async function ProjectsPage() {
             Projects
           </h2>
           <p className="mt-4 text-zinc-400">
-            The projects listed below were developed during my (limited) free time, Feel free to browse and enjoy them.
+          The projects showcased below were developed during my (limited) free time. Please feel free to browse and enjoy them. Additionally, you can explore an extensive collection of my work in my <a href="https://github.com/tamir-nakar" target="_blank">GitHub repository</a>.
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />

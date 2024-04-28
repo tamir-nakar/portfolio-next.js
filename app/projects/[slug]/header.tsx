@@ -9,6 +9,7 @@ type Props = {
 		title: string;
 		description: string;
 		repository?: string;
+		demo?: string;
 	};
 
 	views: number;
@@ -28,6 +29,12 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 		links.push({
 			label: "Website",
 			href: project.url,
+		});
+	}
+	if (project.demo) {
+		links.push({
+			label: "Demo",
+			href: project.demo,
 		});
 	}
 	useEffect(() => {
@@ -67,7 +74,7 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 								views,
 							)}
 						</span>
-						<Link target="_blank" href="https://twitter.com/chronark_">
+						{/* <Link target="_blank" href="https://twitter.com/chronark_">
 							<Twitter
 								className={`w-6 h-6 duration-200 hover:font-medium ${
 									isIntersecting
@@ -75,8 +82,8 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 										: "text-zinc-600 hover:text-zinc-900"
 								} `}
 							/>
-						</Link>
-						<Link target="_blank" href="https://github.com/chronark">
+						</Link> */}
+						<Link target="_blank" href="https://github.com/tamir-nakar">
 							<Github
 								className={`w-6 h-6 duration-200 hover:font-medium ${
 									isIntersecting
