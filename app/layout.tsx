@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: "tamir-nakar-dev-portfolio",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "",
         width: 1920,
         height: 1080,
       },

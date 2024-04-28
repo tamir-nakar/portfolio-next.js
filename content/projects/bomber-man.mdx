@@ -8,11 +8,29 @@ repository: /tamir-nakar/bomber_man
 import Gallery from 'app/components/gallery.tsx' 
 
 
-This page is still under construction.
+<p><b> Building a memory game is nice, but I really wanted to take my skills to the next level! Bomber-Man is a high-framerate game designed and developed in accordance with the classic Bomber-Man game. It is built in plain JS using the `Phaser.js` library (to handle animations and high-speed rendering).</b></p>
+<p>What was really challenging in making this app was sticking to the rules of the original game. I was determined to implement every perk (extra bomb, increased firepower, increased speed, detonator, and bomb-kicking) and did not compromise on any aspect of the game (well, maybe a bit on the art design 😅) until I was completely satisfied with the game flow.</p>
+<p>The game is designed for Person vs. Person or Person vs. AI gameplay, supports up to 4 players, and is mobile-friendly as well. I'm really proud of my AI algorithm that was completely self-developed. It's not perfect, but it does the job when you don't have a human rival at the moment (showcased in the GIF below).</p>
+<p>I think it would be really nice to incorporate a real AI solution for this game using `reinforcement training`, as well as an online experience. Hopefully, I'll find some time to get into it! 💪🏻</p>
+
+
+ ### Features
+
+ * Person VS. Person/self-developed AI up to 4 players
+ * Mobile support
+ * Key Settings screen
+ - [ ] Reinforcement training AI (next step)
+ - [ ] Multiplayer experience (next step)
+
+ ### Tech Stack
+
+ * 100% vanilla-js using Phaser.js lib
+
+## Gallery
 
 <Gallery config={{iconColor: '#9f9f9f'}} images={[
     {src: 'https://github.com/tamir-nakar/bomber_man/blob/master/sample/gameplay.gif?raw=true',description: "Gameplay", type:'image' },
-    {src: 'https://lh3.googleusercontent.com/2I3ECJN-EcfKHVJ4HmU5NTzaNADTct4GFAzQu539KmukoGyjPZODDWl_4IubUWmUfJ8U8DKYpMoHLIXJ9WLcpZjL5g=s1280-w1280-h800', description: "Look & Feel", type: 'image' },
-    {src: 'https://lh3.googleusercontent.com/ETF-3SLgBYatUPAlPi2701ca5GbZg2m_EMxfhe6c2gQ-9hxcE3BOBt684lyghrXjAmnwQIh73x9JKZVj3k4Jgab59VU=s1280-w1280-h800', description: "Search bookmarks",  type: 'image' },
-    {src: 'https://lh3.googleusercontent.com/0cbSpqhzhDmadutbSuTkP_zKSmw4b4APDaRNqKyROddtPkblhH26KStNAB8fmUtpRKAletmTaja5SDRT9hi_S1By=s1280-w1280-h800', description: "Right click menu" ,type: 'image' },  
+    {src: '/img/bomber-man/bomber-man_menu.jpg', description: "Main menu", type: 'image' },
+    {src: '/img/bomber-man/bomber-man_settings.jpg', description: "Settings screen",  type: 'image' },
+    {src: '/img/bomber-man/bomber-man_gameplay.jpg', description: "Another gameplay screen" ,type: 'image' },  
 ]} />        
