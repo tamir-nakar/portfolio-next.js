@@ -21,10 +21,10 @@ interface BadgeCounts {
 
 const socials = [
 	{
-		icon: <Mail size={20} />,
-		href: "mailto:nakar.tamir@gmail.com",
-		label: "Email",
-		handle: "nakar.tamir@gmail.com",
+		icon: <FontAwesomeIcon icon={faStackOverflow} size="xl" />,
+		href: "https://stackoverflow.com/users/8930025/tamir-nakar",
+		label: "StackOverflow",
+		handle: "Tamir Nakar",
 	},
 	{
 		icon: <Github size={20} />,
@@ -39,10 +39,10 @@ const socials = [
 		handle: "Tamir Nakar",
 	},
 	{
-		icon: <FontAwesomeIcon icon={faStackOverflow} size="xl" />,
-		href: "https://stackoverflow.com/users/8930025/tamir-nakar",
-		label: "StackOverflow",
-		handle: "Tamir Nakar",
+		icon: <Mail size={20} />,
+		href: "mailto:nakar.tamir@gmail.com",
+		label: "Email",
+		handle: "nakar.tamir@gmail.com",
 	},
 ];
 
@@ -90,7 +90,8 @@ export default function Example() {
 									<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
 										{s.label}
 									</span>
-									{index === 3 && stackOverflowStats.reputation !== null && stackOverflowStats.badges !== null && (
+									{/* stackoverflow only */}
+									{index === 0 && stackOverflowStats.reputation !== null && stackOverflowStats.badges !== null && (
 										<>
 											<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
 												Rep: {stackOverflowStats.reputation} | <FontAwesomeIcon icon={faCircle} size={"xs"} color={"#fd0"} />  {stackOverflowStats.badges.gold }  <FontAwesomeIcon icon={faCircle} size={"xs"} color={"#b4b8bc"} /> {stackOverflowStats.badges.silver}  <FontAwesomeIcon icon={faCircle} size={"xs"} color={"#d1a684"} /> {stackOverflowStats.badges.bronze} 
