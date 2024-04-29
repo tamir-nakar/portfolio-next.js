@@ -8,6 +8,17 @@ import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 
+interface BadgeCounts {
+	gold: number;
+	silver: number;
+	bronze: number;
+  }
+  
+  interface StackOverflowStats {
+	reputation: number | null;
+	badges: BadgeCounts | null;
+  }
+
 const socials = [
 	{
 		icon: <Mail size={20} />,
@@ -36,7 +47,7 @@ const socials = [
 ];
 
 export default function Example() {
-	const [stackOverflowStats, setStackOverflowStats] = useState({ reputation: null, badges: null });
+	const [stackOverflowStats, setStackOverflowStats] = useState<StackOverflowStats>({ reputation: null, badges: null });
 
 	useEffect(() => {
 		fetch('https://api.stackexchange.com/2.3/users/8930025?site=stackoverflow')
@@ -79,10 +90,10 @@ export default function Example() {
 									<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
 										{s.label}
 									</span>
-									{index === 3 && stackOverflowStats.reputation !== null && (
+									{index === 3 && stackOverflowStats.reputation !== null && stackOverflowStats.badges !== null && (
 										<>
 											<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
-												Rep: {stackOverflowStats.reputation} | <FontAwesomeIcon icon={faCircle} size={"xs"} color={"#fd0"} />  {stackOverflowStats.badges.gold}  <FontAwesomeIcon icon={faCircle} size={"xs"} color={"#b4b8bc"} /> {stackOverflowStats.badges.silver}  <FontAwesomeIcon icon={faCircle} size={"xs"} color={"#d1a684"} /> {stackOverflowStats.badges.bronze} 
+												Rep: {stackOverflowStats.reputation} | <FontAwesomeIcon icon={faCircle} size={"xs"} color={"#fd0"} />  {stackOverflowStats.badges.gold }  <FontAwesomeIcon icon={faCircle} size={"xs"} color={"#b4b8bc"} /> {stackOverflowStats.badges.silver}  <FontAwesomeIcon icon={faCircle} size={"xs"} color={"#d1a684"} /> {stackOverflowStats.badges.bronze} 
 											</span>
 										</>
 									)}
