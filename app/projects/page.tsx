@@ -46,7 +46,7 @@ export default async function ProjectsPage() {
             Projects
           </h2>
           <p className="mt-4 text-zinc-400">
-          The projects showcased below were developed during my (limited) free time. Please feel free to browse and enjoy them. Additionally, you can explore an extensive collection of my work in my <a href="https://github.com/tamir-nakar" target="_blank">GitHub repository</a>.
+          The projects showcased below were developed during my (limited) free time. Please feel free to browse and enjoy them. Additionally, you can explore an extensive collection of my work in my <a href="https://github.com/tamir-nakar" target="_blank">GitHub repository.</a><br></br><br></br> Every Project showcased below includes info, Github repo link and a demonstration page (look for 'Demo').
           </p>
         </div>
         <div className="w-full h-px bg-zinc-800" />
