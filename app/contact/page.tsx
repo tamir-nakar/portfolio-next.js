@@ -3,7 +3,16 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStackOverflow } from '@fortawesome/free-brands-svg-icons'
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
-import { Github, Mail, Linkedin } from "lucide-react";
+import {
+	Award,
+	BadgeCheck,
+	FolderGit2,
+	Github,
+	Linkedin,
+	Mail,
+	Star,
+	Users,
+} from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
@@ -18,6 +27,12 @@ interface BadgeCounts {
 	reputation: number | null;
 	badges: BadgeCounts | null;
   }
+
+interface GithubStats {
+	followers: number | null;
+	publicRepos: number | null;
+	stars: number | null;
+}
 
 const socials = [
 	{
@@ -48,6 +63,11 @@ const socials = [
 
 export default function Example() {
 	const [stackOverflowStats, setStackOverflowStats] = useState<StackOverflowStats>({ reputation: null, badges: null });
+	const [githubStats, setGithubStats] = useState<GithubStats>({
+		followers: null,
+		publicRepos: null,
+		stars: null,
+	});
 
 	useEffect(() => {
 		fetch('https://api.stackexchange.com/2.3/users/8930025?site=stackoverflow')
@@ -62,6 +82,50 @@ export default function Example() {
 				// Handle errors or limit exceeded
 				console.log('Unable to fetch StackOverflow data');
 			});
+	}, []);
+
+	useEffect(() => {
+		const controller = new AbortController();
+
+		(async () => {
+			try {
+				const headers = {
+					Accept: "application/vnd.github+json",
+				};
+
+				const userRes = await fetch("https://api.github.com/users/tamir-nakar", {
+					headers,
+					signal: controller.signal,
+				});
+				if (!userRes.ok) return;
+				const user = await userRes.json();
+
+				let stars = 0;
+				for (let page = 1; page <= 10; page++) {
+					const reposRes = await fetch(
+						`https://api.github.com/users/tamir-nakar/repos?per_page=100&page=${page}`,
+						{ headers, signal: controller.signal },
+					);
+					if (!reposRes.ok) break;
+					const repos = await reposRes.json();
+					if (!Array.isArray(repos) || repos.length === 0) break;
+					for (const repo of repos) {
+						stars += Number(repo?.stargazers_count ?? 0);
+					}
+					if (repos.length < 100) break;
+				}
+
+				setGithubStats({
+					followers: Number.isFinite(user?.followers) ? user.followers : null,
+					publicRepos: Number.isFinite(user?.public_repos) ? user.public_repos : null,
+					stars,
+				});
+			} catch {
+				// ignore
+			}
+		})();
+
+		return () => controller.abort();
 	}, []);
 
 	return (
@@ -93,11 +157,82 @@ export default function Example() {
 									{/* stackoverflow only */}
 									{index === 0 && stackOverflowStats.reputation !== null && stackOverflowStats.badges !== null && (
 										<>
-											<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
-												Rep: {stackOverflowStats.reputation} | <FontAwesomeIcon icon={faCircle} size={"xs"} color={"#fd0"} />  {stackOverflowStats.badges.gold }  <FontAwesomeIcon icon={faCircle} size={"xs"} color={"#b4b8bc"} /> {stackOverflowStats.badges.silver}  <FontAwesomeIcon icon={faCircle} size={"xs"} color={"#d1a684"} /> {stackOverflowStats.badges.bronze} 
+											<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+												<span className="relative inline-flex items-center gap-2">
+													<Award className="w-4 h-4 peer cursor-help" />
+													<span>
+														{Intl.NumberFormat("en-US", {
+															notation: "compact",
+														}).format(stackOverflowStats.reputation)}
+													</span>
+													<span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-zinc-900 px-2 py-1 text-xs text-zinc-100 opacity-0 shadow-lg transition-opacity peer-hover:opacity-100">
+														Reputation
+														<span className="absolute left-1/2 top-full -translate-x-1/2 w-2 h-2 bg-zinc-900 rotate-45" />
+													</span>
+												</span>
+
+												<span className="relative inline-flex items-center gap-2">
+													<BadgeCheck className="w-4 h-4 peer cursor-help" />
+													<FontAwesomeIcon icon={faCircle} size={"xs"} color={"#fd0"} />{" "}
+													{stackOverflowStats.badges.gold}{" "}
+													<FontAwesomeIcon icon={faCircle} size={"xs"} color={"#b4b8bc"} />{" "}
+													{stackOverflowStats.badges.silver}{" "}
+													<FontAwesomeIcon icon={faCircle} size={"xs"} color={"#d1a684"} />{" "}
+													{stackOverflowStats.badges.bronze}
+													<span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-zinc-900 px-2 py-1 text-xs text-zinc-100 opacity-0 shadow-lg transition-opacity peer-hover:opacity-100">
+														Badges
+														<span className="absolute left-1/2 top-full -translate-x-1/2 w-2 h-2 bg-zinc-900 rotate-45" />
+													</span>
+												</span>
 											</span>
 										</>
 									)}
+									{/* github only */}
+									{index === 1 &&
+										githubStats.followers !== null &&
+										githubStats.publicRepos !== null &&
+										githubStats.stars !== null && (
+											<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+												<span className="relative inline-flex items-center gap-2">
+													<FolderGit2 className="w-4 h-4 peer cursor-help" />
+													<span>
+														{Intl.NumberFormat("en-US", {
+															notation: "compact",
+														}).format(githubStats.publicRepos)}
+													</span>
+													<span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-zinc-900 px-2 py-1 text-xs text-zinc-100 opacity-0 shadow-lg transition-opacity peer-hover:opacity-100">
+														Repos
+														<span className="absolute left-1/2 top-full -translate-x-1/2 w-2 h-2 bg-zinc-900 rotate-45" />
+													</span>
+												</span>
+
+												<span className="relative inline-flex items-center gap-2">
+													<Star className="w-4 h-4 peer cursor-help" />
+													<span>
+														{Intl.NumberFormat("en-US", {
+															notation: "compact",
+														}).format(githubStats.stars)}
+													</span>
+													<span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-zinc-900 px-2 py-1 text-xs text-zinc-100 opacity-0 shadow-lg transition-opacity peer-hover:opacity-100">
+														Stars
+														<span className="absolute left-1/2 top-full -translate-x-1/2 w-2 h-2 bg-zinc-900 rotate-45" />
+													</span>
+												</span>
+
+												<span className="relative inline-flex items-center gap-2">
+													<Users className="w-4 h-4 peer cursor-help" />
+													<span>
+														{Intl.NumberFormat("en-US", {
+															notation: "compact",
+														}).format(githubStats.followers)}
+													</span>
+													<span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-zinc-900 px-2 py-1 text-xs text-zinc-100 opacity-0 shadow-lg transition-opacity peer-hover:opacity-100">
+														Followers
+														<span className="absolute left-1/2 top-full -translate-x-1/2 w-2 h-2 bg-zinc-900 rotate-45" />
+													</span>
+												</span>
+											</span>
+										)}
 								</div>
 							</Link>
 						</Card>
