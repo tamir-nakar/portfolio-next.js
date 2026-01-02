@@ -5,7 +5,6 @@ import { faStackOverflow } from '@fortawesome/free-brands-svg-icons'
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import {
 	Award,
-	BadgeCheck,
 	FolderGit2,
 	Github,
 	Linkedin,
@@ -159,7 +158,7 @@ export default function Example() {
 										<>
 											<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
 												<span className="relative inline-flex items-center gap-2">
-													<Award className="w-4 h-4 peer cursor-help" />
+													<Award className="w-4 h-4 peer" />
 													<span>
 														{Intl.NumberFormat("en-US", {
 															notation: "compact",
@@ -171,18 +170,13 @@ export default function Example() {
 													</span>
 												</span>
 
-												<span className="relative inline-flex items-center gap-2">
-													<BadgeCheck className="w-4 h-4 peer cursor-help" />
+												<span className="inline-flex items-center gap-1">
 													<FontAwesomeIcon icon={faCircle} size={"xs"} color={"#fd0"} />{" "}
 													{stackOverflowStats.badges.gold}{" "}
 													<FontAwesomeIcon icon={faCircle} size={"xs"} color={"#b4b8bc"} />{" "}
 													{stackOverflowStats.badges.silver}{" "}
 													<FontAwesomeIcon icon={faCircle} size={"xs"} color={"#d1a684"} />{" "}
 													{stackOverflowStats.badges.bronze}
-													<span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-zinc-900 px-2 py-1 text-xs text-zinc-100 opacity-0 shadow-lg transition-opacity peer-hover:opacity-100">
-														Badges
-														<span className="absolute left-1/2 top-full -translate-x-1/2 w-2 h-2 bg-zinc-900 rotate-45" />
-													</span>
 												</span>
 											</span>
 										</>
@@ -194,7 +188,7 @@ export default function Example() {
 										githubStats.stars !== null && (
 											<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
 												<span className="relative inline-flex items-center gap-2">
-													<FolderGit2 className="w-4 h-4 peer cursor-help" />
+													<FolderGit2 className="w-4 h-4 peer" />
 													<span>
 														{Intl.NumberFormat("en-US", {
 															notation: "compact",
@@ -207,7 +201,7 @@ export default function Example() {
 												</span>
 
 												<span className="relative inline-flex items-center gap-2">
-													<Star className="w-4 h-4 peer cursor-help" />
+													<Star className="w-4 h-4 peer" />
 													<span>
 														{Intl.NumberFormat("en-US", {
 															notation: "compact",
@@ -220,7 +214,7 @@ export default function Example() {
 												</span>
 
 												<span className="relative inline-flex items-center gap-2">
-													<Users className="w-4 h-4 peer cursor-help" />
+													<Users className="w-4 h-4 peer" />
 													<span>
 														{Intl.NumberFormat("en-US", {
 															notation: "compact",
