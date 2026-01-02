@@ -1,7 +1,7 @@
 ---
 title: ATO - AI Tab Organizer
-description: AI tab organizer & smart tab manager. Auto-group tabs by category, last access, or usage. Clean duplicates, rename tabs, and search instantly. Trusted by hundreds of users — including paying customers.
-date: 2025-12-30
+description: AI-powered Chrome extension for intelligent tab management. Automatically organizes browser tabs by category, last access, or usage patterns — helping users stay focused even with hundreds of open tabs. Trusted by hundreds of users, including paying customers.
+date: 2024-10-13
 published: true
 url: https://www.atobase.app/
 demo: https://chromewebstore.google.com/detail/ato-ai-tab-organizer-smar/dhljacmljbbiihhjfjcjaebajabeedfg?utm_source=tamirnakar.dev&utm_medium=portfolio&utm_campaign=project_ato
@@ -9,36 +9,87 @@ demo: https://chromewebstore.google.com/detail/ato-ai-tab-organizer-smar/dhljacm
 
 import Gallery from 'app/components/gallery.tsx'
 
-<p><b>ATO – Your AI-Powered Tab Organizer & Smart Tab Manager.</b> ATO automatically sorts, groups, and manages your browser tabs using real AI — keeping your workspace clean and easy to navigate. It already has <b>hundreds of downloads</b> and <b>paying customers</b>.</p>
+## TL;DR
 
-<p><b>This project is a full system made of 3 working parts</b> that operate together: <b>ATO Client</b> (the Chrome extension), <b>ATO Server</b>, and the <b>ATO website</b> (<a target="_blank" href="https://www.atobase.app/">atobase.app</a>).</p>
+ATO is a production-grade, AI-powered Chrome extension that intelligently organizes browser tabs at scale.
+It supports real-time and on-demand tab grouping using semantic AI, usage prediction, and access history.
+The project is a full end-to-end system (extension, backend, and website), used daily by hundreds of users — including paying customers — and built with a scalable AWS-based architecture and a tokenized AI usage model.
+
+ATO (AI Tab Organizer) was born out of a very real problem I had myself: my browser constantly turned into chaos. Dozens — sometimes hundreds — of open tabs across multiple windows, all competing for attention.
+
+Instead of closing tabs and losing context, I wanted a system that could understand what each tab represents and organize everything intelligently — with minimal effort from the user.
+
+That idea grew into ATO, a full-scale product that today has hundreds of users, real usage at scale, and active paying subscribers. 🚀
+
+## What ATO Does
+
+ATO automatically sorts, groups, and manages browser tabs using real AI — turning tab overload into a clean, structured workspace.
 
 ### Two ways to use ATO
 
-- **Organize on demand**: One click to instantly organize all open tabs — great for heavy tab users (20–300 tabs).
-- **Dynamic auto-organizing**: Every new tab is organized the moment it’s opened, so your browsing stays structured all the time.
+- **Organize on demand**: One click instantly organizes all open tabs. Perfect for heavy tab users (20–300 tabs).
+- **Dynamic auto-organizing**: Every new tab is organized the moment it’s opened — keeping the browser clean at all times.
 
 ### Smart AI organization methods
 
-- **By category (semantic grouping)**: Groups tabs into meaningful categories like News, Shopping, Finance, Sports, Entertainment, Tools, Docs, Social, Work, and more.
-- **By last access**: Keeps recently used tabs easy to reach while older ones are neatly grouped away.
-- **By frequency (prediction mode)**: Prioritizes tabs you’re most likely to use next based on usage patterns.
+- **By category (semantic grouping)**: Tabs are grouped into meaningful domains like News, Shopping, Finance, Work, Docs, Social, Entertainment, Tools, and more — based on content, not just URLs.
+- **By last access**: Recently used tabs stay front and center, while older tabs are grouped away neatly.
+- **By frequency (prediction mode)**: Tabs are prioritized based on usage patterns, predicting what the user is most likely to open next.
 
 ### Tab management tools
 
-- **Search tabs** instantly across all open tabs
-- **Rename tabs** for clarity (especially when titles look the same)
-- **Clean duplicate tabs** automatically
-- **Ungroup all tabs**
-- **Collapse / expand all tab groups**
-- **Smart sorting** of tab groups based on your chosen method
+Beyond grouping, ATO offers a full set of productivity tools:
 
-### Tech stack / architecture
+- **Instant search** across all open tabs
+- **Smart tab renaming** (great when many tabs share similar titles)
+- **Automatic duplicate tab cleanup**
+- **Collapse / expand** all tab groups
+- **Ungroup** all tabs
+- **Intelligent sorting** of tab groups based on the selected method
 
-- **Client (Chrome extension)**: Built with **Plasmo** — a modern framework/tooling layer that streamlines building and shipping browser extensions (React + great DX).
-- **Server**: Deployed on **AWS Lambda**, with **Amazon Cognito** for userbase/authentication and **AWS DynamoDB** as the NoSQL database — together enabling a robust token mechanism.
-- **AI**: A key requirement for me was **plug-and-play** onboarding — users don’t need to bring their own API key. The extension relies on the server to securely make AI requests.
-- **Source**: The codebase is **not open source**.
+All actions are designed to be fast, predictable, and low-friction.
+
+## Architecture & Technical Depth
+
+ATO is not just a Chrome extension — it’s a complete system made of three coordinated parts:
+
+- **ATO Client (Chrome Extension)**: Built with **Plasmo**, enabling modern React-based development and smooth extension DX.
+- **ATO Server**: Deployed on **AWS Lambda**, using:
+  - **Amazon Cognito** for authentication and user management
+  - **AWS DynamoDB** for token tracking and usage control
+  - A scalable token-based mechanism that enables flexible pricing models
+- **ATO Website**: A public marketing and onboarding site ([`atobase.app`](https://www.atobase.app/)), supporting subscriptions and user education.
+
+## AI & Product Design Decisions
+
+A key design requirement for ATO was plug-and-play onboarding.
+
+Users do not need to bring their own API keys or configure anything. The server securely handles all AI requests, abstracts complexity away from the user, and enforces fair usage via a token system.
+
+This approach prioritizes:
+
+- **Security**
+- **Ease of use**
+- **Predictable costs**
+- **A clean user experience**
+
+## Adoption & Real Users
+
+- **Hundreds of downloads**
+- **Active daily users**
+- **Paying customers** using the product in real workflows
+
+ATO is continuously evolving based on real feedback and usage patterns — not just ideas on paper.
+
+## Tech Stack
+
+- **Client**: Chrome Extension built with Plasmo (React)
+- **Server**: AWS Lambda
+- **Auth**: Amazon Cognito
+- **Database**: DynamoDB
+- **AI**: Server-side AI requests (no BYOK required)
+
+The codebase is not open source.
 
 ## Gallery
 
