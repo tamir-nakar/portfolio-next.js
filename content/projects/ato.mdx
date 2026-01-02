@@ -1,0 +1,53 @@
+---
+title: ATO - AI Tab Organizer
+description: AI tab organizer & smart tab manager. Auto-group tabs by category, last access, or usage. Clean duplicates, rename tabs, and search instantly. Trusted by hundreds of users — including paying customers.
+date: 2025-12-30
+published: true
+url: https://www.atobase.app/
+demo: https://chromewebstore.google.com/detail/ato-ai-tab-organizer-smar/dhljacmljbbiihhjfjcjaebajabeedfg?utm_source=tamirnakar.dev&utm_medium=portfolio&utm_campaign=project_ato
+---
+
+import Gallery from 'app/components/gallery.tsx'
+
+<p><b>ATO – Your AI-Powered Tab Organizer & Smart Tab Manager.</b> ATO automatically sorts, groups, and manages your browser tabs using real AI — keeping your workspace clean and easy to navigate. It already has <b>hundreds of downloads</b> and <b>paying customers</b>.</p>
+
+<p><b>This project is a full system made of 3 working parts</b> that operate together: <b>ATO Client</b> (the Chrome extension), <b>ATO Server</b>, and the <b>ATO website</b> (<a target="_blank" href="https://www.atobase.app/">atobase.app</a>).</p>
+
+### Two ways to use ATO
+
+- **Organize on demand**: One click to instantly organize all open tabs — great for heavy tab users (20–300 tabs).
+- **Dynamic auto-organizing**: Every new tab is organized the moment it’s opened, so your browsing stays structured all the time.
+
+### Smart AI organization methods
+
+- **By category (semantic grouping)**: Groups tabs into meaningful categories like News, Shopping, Finance, Sports, Entertainment, Tools, Docs, Social, Work, and more.
+- **By last access**: Keeps recently used tabs easy to reach while older ones are neatly grouped away.
+- **By frequency (prediction mode)**: Prioritizes tabs you’re most likely to use next based on usage patterns.
+
+### Tab management tools
+
+- **Search tabs** instantly across all open tabs
+- **Rename tabs** for clarity (especially when titles look the same)
+- **Clean duplicate tabs** automatically
+- **Ungroup all tabs**
+- **Collapse / expand all tab groups**
+- **Smart sorting** of tab groups based on your chosen method
+
+### Tech stack / architecture
+
+- **Client (Chrome extension)**: Built with **Plasmo** — a modern framework/tooling layer that streamlines building and shipping browser extensions (React + great DX).
+- **Server**: Deployed on **AWS Lambda**, with **Amazon Cognito** for userbase/authentication and **AWS DynamoDB** as the NoSQL database — together enabling a robust token mechanism.
+- **AI**: A key requirement for me was **plug-and-play** onboarding — users don’t need to bring their own API key. The extension relies on the server to securely make AI requests.
+- **Source**: The codebase is **not open source**.
+
+## Gallery
+
+<Gallery config={{iconColor: '#9f9f9f'}} images={[
+  {src: 'https://www.youtube.com/embed/exlvtijDc10?start=2', type:'video' },
+  {src: 'https://lh3.googleusercontent.com/VoF-8MHvb7SLva9K3rB5bIn0cQiTSY7XuGeom3nmn9XX-h6iVHyiS9pbWtchlXJ9cjj49AogClyiQNWlbkD-cpWLLA=s800-w800-h500', description: "Overview", type: 'image' },
+  {src: 'https://lh3.googleusercontent.com/s7FipgmFWC6YFaSyIZ9H17Q5lr0apZiWu1NQjAV2xgiswYvW1er8xK9baps-2-vrHzf79UDsMJmLx3RAcmzis8ltAw=s1280-w1280-h800', description: "AI organization", type: 'image' },
+  {src: 'https://lh3.googleusercontent.com/aOQ8gevB2HeSq5DWrqAixCu_YDQojsHpAEkH-PE3pdUQ6cPInJxO6whSUd0e8AxPSqgqlUVu-GG7UpM6DzWM8AyE=s1280-w1280-h800', description: "Tab search & management", type: 'image' },
+  {src: 'https://lh3.googleusercontent.com/71D7LB552Hfr5Xg7WYlyeahOI3_Ht2YFeimMGcQJMNgl45lMSyv6H4l8R8B1RAlkcqlZatX-56L-WdTW5UqBKf8Myg=s1280-w1280-h800', description: "Grouping & sorting", type: 'image' },
+]} />
+
+
