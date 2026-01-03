@@ -6,6 +6,7 @@ import { Card } from "../components/card";
 import { Article } from "./article";
 import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
+import Image from "next/image";
 
 const redis = Redis.fromEnv();
 
@@ -41,13 +42,32 @@ export default async function ProjectsPage() {
     <div className="relative pb-16">
       <Navigation />
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
-        <div className="max-w-2xl mx-auto lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-            Projects
-          </h2>
-          <p className="mt-4 text-zinc-400">
-          The projects showcased below were developed during my (limited) free time. Please feel free to browse and enjoy them. Additionally, you can explore an extensive collection of my work in my <a href="https://github.com/tamir-nakar" target="_blank">GitHub repository.</a><br></br><br></br> Every Project showcased below includes info, Github repo link and a demonstration page (look for 'Demo').
-          </p>
+        <div className="flex flex-col items-center gap-8 mx-auto lg:items-center lg:justify-between lg:flex-row max-w-4xl lg:mx-0">
+          <div className="max-w-2xl">
+            <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+              Projects
+            </h2>
+            <p className="mt-4 text-zinc-400">
+            The projects showcased below were developed during my (limited) free time. Please feel free to browse and enjoy them. Additionally, you can explore an extensive collection of my work in my <a href="https://github.com/tamir-nakar" target="_blank">GitHub repository.</a><br></br><br></br> Every Project showcased below includes info, Github repo link and a demonstration page (look for 'Demo').
+            </p>
+          </div>
+
+          <div className="relative shrink-0 lg:translate-x-6">
+            <div
+              className="absolute inset-0 rounded-full bg-gradient-to-tr from-zinc-200/20 via-zinc-200/5 to-transparent blur-xl"
+              aria-hidden="true"
+            />
+            <div className="relative h-36 w-36 sm:h-40 sm:w-40 md:h-52 md:w-52 rounded-full overflow-hidden border border-zinc-700/60 bg-zinc-900/20 shadow-2xl shadow-black/40">
+              <Image
+                src="/img/general/projects.png"
+                alt="Projects"
+                fill
+                priority
+                sizes="(max-width: 640px) 144px, (max-width: 768px) 160px, 208px"
+                className="object-cover"
+              />
+            </div>
+          </div>
         </div>
         <div className="w-full h-px bg-zinc-800" />
 
