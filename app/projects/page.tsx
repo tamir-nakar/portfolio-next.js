@@ -7,6 +7,7 @@ import { Article } from "./article";
 import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 import Image from "next/image";
+import { ProjectIcon } from "./project-icons";
 
 const redis = Redis.fromEnv();
 
@@ -99,7 +100,13 @@ export default async function ProjectsPage() {
                   id="featured-post"
                   className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
                 >
-                  {featured.title}
+                  <span className="inline-flex items-center gap-3">
+                    <ProjectIcon
+                      slug={featured.slug}
+                      className="h-7 w-7 sm:h-8 sm:w-8"
+                    />
+                    <span>{featured.title}</span>
+                  </span>
                 </h2>
                 <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
                   {featured.description}

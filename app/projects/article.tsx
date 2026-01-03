@@ -1,6 +1,7 @@
 import type { Project } from "@/.contentlayer/generated";
 import Link from "next/link";
 import { Eye, View } from "lucide-react";
+import { ProjectIcon } from "./project-icons";
 
 type Props = {
 	project: Project;
@@ -29,7 +30,13 @@ export const Article: React.FC<Props> = ({ project, views }) => {
 					</span>
 				</div>
 				<h2 className="z-20 text-xl font-medium duration-1000 lg:text-3xl text-zinc-200 group-hover:text-white font-display">
-					{project.title}
+					<span className="inline-flex items-center gap-3">
+						<ProjectIcon
+							slug={project.slug}
+							className="h-6 w-6 lg:h-8 lg:w-8"
+						/>
+						<span>{project.title}</span>
+					</span>
 				</h2>
 				<p className="z-20 mt-4 text-sm  duration-1000 text-zinc-400 group-hover:text-zinc-200">
 					{project.description}
