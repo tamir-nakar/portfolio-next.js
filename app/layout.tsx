@@ -7,7 +7,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 
 export const metadata: Metadata = {
   title: {
-    default: "Tamir Nakar",
+    default: "Tamir Nakar | Dev Portfolio",
     template: "%s | tamir-nakar-dev-portfolio",
   },
   description: "Ninja Full-Stack developer",
@@ -43,6 +43,7 @@ export const metadata: Metadata = {
   //   card: "summary_large_image",
   // },
   icons: {
+    icon: [{ url: "/favicon.png" }],
     shortcut: "/favicon.png",
   },
 };
