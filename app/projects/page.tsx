@@ -49,7 +49,13 @@ export default async function ProjectsPage() {
               Projects
             </h2>
             <p className="mt-4 text-zinc-400">
-            The projects showcased below were developed during my (limited) free time. Please feel free to browse and enjoy them. Additionally, you can explore an extensive collection of my work in my <a href="https://github.com/tamir-nakar" target="_blank">GitHub repository.</a><br></br><br></br> Every Project showcased below includes info, Github repo link and a demonstration page (look for 'Demo').
+            The projects showcased below were built during my (limited) free time and reflect both experimentation and real-world product development.
+
+Some of these projects began as technical explorations - a way to try new technologies, ideas, or approaches. Others evolved far beyond that and became full-fledged products, <strong>now used by hundreds of active users and even paying customers</strong>. <br></br>For those mature products, parts of the codebase are naturally not open-source.
+
+<br></br><br></br>Each project includes a short overview, a GitHub repository link (when applicable), and a live demonstration page (look for <strong>Demo</strong>).
+
+If you’d like to explore more experiments, prototypes, and open-source work, you’re welcome to browse my GitHub repository as well.
             </p>
           </div>
 
