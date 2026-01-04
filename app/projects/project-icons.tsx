@@ -10,6 +10,7 @@ type Props = {
 const ICONS: Record<string, { src: string; alt: string }> = {
   ato: { src: "/img/project-images/ato.svg", alt: "ATO" },
   hive: { src: "/img/project-images/hive.png", alt: "Hive" },
+  "tamir-nakar-dev-portfolio": { src: "/favicon.png", alt: "Dev-Portfolio" },
 };
 
 export function ProjectIcon({ slug, className }: Props) {
