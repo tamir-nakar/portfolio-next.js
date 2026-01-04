@@ -49,9 +49,9 @@ export default async function ProjectsPage() {
               Projects
             </h2>
             <p className="mt-4 text-zinc-400">
-            The projects showcased below were built during my (limited) free time and reflect both experimentation and real-world product development.
+            The projects showcased below were built during my free time and reflect both experimentation and real-world product development.
 
-Some of these projects began as technical explorations - a way to try new technologies, ideas, or approaches. Others evolved far beyond that and became full-fledged products, <strong>now used by hundreds of active users and even paying customers</strong>. <br></br>For those mature products, parts of the codebase are naturally not open-source.
+<br></br>Some of these projects began as technical explorations - a way to try new technologies, ideas, or approaches. Others evolved far beyond that and became full-fledged products, <strong>now used by hundreds of active users and even paying customers</strong>. <br></br>For those mature products, parts of the codebase are naturally not open-source.
 
 <br></br><br></br>Each project includes a short overview, a GitHub repository link (when applicable), and a live demonstration page (look for <strong>Demo</strong>).
 
@@ -59,7 +59,7 @@ If you’d like to explore more experiments, prototypes, and open-source work, y
             </p>
           </div>
 
-          <div className="relative shrink-0 lg:translate-x-6">
+          <div className="relative shrink-0 lg:translate-x-48">
             <div
               className="absolute inset-0 rounded-full bg-gradient-to-tr from-zinc-200/20 via-zinc-200/5 to-transparent blur-xl"
               aria-hidden="true"
