@@ -11,6 +11,8 @@ const ICONS: Record<string, { src: string; alt: string }> = {
   ato: { src: "/img/project-images/ato.svg", alt: "ATO" },
   hive: { src: "/img/project-images/hive.png", alt: "Hive" },
   "tamir-nakar-dev-portfolio": { src: "/favicon.png", alt: "Dev-Portfolio" },
+  "bomber-man": { src: "/img/project-images/bomber-man.png", alt: "Bomber Man" },
+  "flip-it": { src: "/img/project-images/flip-it.ico", alt: "flip-it!" },
 };
 
 export function ProjectIcon({ slug, className }: Props) {
@@ -19,13 +21,21 @@ export function ProjectIcon({ slug, className }: Props) {
 
   return (
     <span className={`relative inline-block ${className ?? ""}`}>
-      <Image
-        src={icon.src}
-        alt={`${icon.alt} icon`}
-        fill
-        sizes="32px"
-        className="object-contain"
-      />
+      {icon.src.endsWith(".ico") ? (
+        <img
+          src={icon.src}
+          alt={`${icon.alt} icon`}
+          className="h-full w-full object-contain"
+        />
+      ) : (
+        <Image
+          src={icon.src}
+          alt={`${icon.alt} icon`}
+          fill
+          sizes="32px"
+          className="object-contain"
+        />
+      )}
     </span>
   );
 }
