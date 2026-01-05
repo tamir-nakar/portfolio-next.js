@@ -4,4 +4,4 @@
 
 > url: https://tamirnakar.vercel.app/
 
-![screenshot](./documentation//screenshot.jpg)
+![screenshot](./documentation//screenshot.png)
